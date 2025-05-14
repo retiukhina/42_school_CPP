@@ -2,7 +2,7 @@
 
 int main(){
 
-	PhoneBook	phoneBook;
+	PhoneBook	pb;
 	std::string	input;
 
 	while (true){
@@ -11,7 +11,7 @@ int main(){
 		std::getline(std::cin, input);
 
 		if (input == "ADD"){
-			phoneBook.add();
+			pb.add();
 		}
 		else if (input == "SEARCH"){
 			break;
@@ -20,7 +20,7 @@ int main(){
 			break;
 		}
 		else{
-			std::cout << "Uknown command" << std::endl;
+			std::cout << "Uknown command. Type: ADD, SEARCH or EXIT: " << std::endl;
 		}
 	}
 }

@@ -1,5 +1,4 @@
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#pragma once
 
 #include <iostream>
 #include "Contact.hpp"
@@ -8,13 +7,13 @@
 
 class PhoneBook {
 	public:
+		PhoneBook();
 		bool add();
+		bool search();
 
 	private:
-		int			nextIndex = 0;
-		int			contactCount = 0;
+		int			nextIndex;
+		int			contactCount;
 		Contact		contacts[MAX_CONTACTS];
 		std::string	readInput(const std::string& prompt);
 };
-
-#endif

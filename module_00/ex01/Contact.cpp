@@ -12,7 +12,7 @@ void Contact::setNickName(const std::string& input){
 	this->nickName = input;
 }
 
-void Contact::setPnoneNumber(const std::string& input){
+void Contact::setPhoneNumber(const std::string& input){
 	this->phoneNumber = input;
 }
 
