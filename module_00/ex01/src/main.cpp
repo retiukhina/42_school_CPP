@@ -1,7 +1,6 @@
-#include "PhoneBook.hpp"
+#include "../include/PhoneBook.hpp"
 
-int main(){
-
+int main() {
 	PhoneBook	pb;
 	std::string	input;
 
@@ -14,7 +13,8 @@ int main(){
 			pb.add();
 		}
 		else if (input == "SEARCH"){
-			break;
+			if (!pb.search())
+				break;
 		}
 		else if (input == "EXIT"){
 			break;

@@ -1,12 +1,13 @@
 #pragma once
 
 #include <iostream>
+#include <sstream>
 #include "Contact.hpp"
-
-#define MAX_CONTACTS 8
+#include "Print.hpp"
 
 class PhoneBook {
 	public:
+		static const int MAX_CONTACTS = 8;
 		PhoneBook();
 		bool add();
 		bool search();
