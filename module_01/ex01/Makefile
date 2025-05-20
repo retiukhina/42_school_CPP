@@ -1,12 +1,12 @@
 # Name of the program
-NAME = zombie
+NAME = zombies
 # Compiler and flags
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Source and object files $(SRC_DIR)/newZombie.cpp
 SRC_DIR = src
-SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/Zombie.cpp $(SRC_DIR)/zombieHorde.cpp 
+SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/Zombie.cpp $(SRC_DIR)/zombieHorde.cpp
 OBJ_DIR = build
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
