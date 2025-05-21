@@ -17,10 +17,13 @@ void Harl::error(void) {
 }
 
 void Harl::complain(std::string level) {
+	// Create a type alias for a pointer to a member function of the Harl
+	// in order to simplify long declarations
     typedef void (Harl::*HarlFunc)(void);
 
     std::string levels[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
-    HarlFunc functions[4] = {
+    // Set a member function pointer to point to a member function
+	HarlFunc functions[4] = {
         &Harl::debug,
         &Harl::info,
         &Harl::warning,
