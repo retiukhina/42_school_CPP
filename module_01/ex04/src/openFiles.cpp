@@ -10,7 +10,8 @@ bool openWriteFile(std::ofstream& output, const std::string& filename) {
 	return true;
 }
 
-bool openReadFile(std::ifstream& input, const std::string& filename) {
+bool openReadFile(std::ifstream& input, const std::string& filename)
+{
     input.open(filename.c_str(), std::ios::in); // open file for reading
 
     if (!input) {
@@ -20,8 +21,9 @@ bool openReadFile(std::ifstream& input, const std::string& filename) {
 	return true;
 }
 
-bool openFiles(std::ifstream& input, std::ofstream& output) {
-    const std::string inputFilename = "filename.txt";
+bool openFiles(const std::string inputFilename, std::ifstream& input,
+    std::ofstream& output)
+{
     const std::string outputFilename = inputFilename + ".replace";
 
     if (!openReadFile(input, inputFilename)) {

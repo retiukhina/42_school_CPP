@@ -1,21 +1,24 @@
 #include "../include/sed.hpp"
 
-int main() {
-    std::string s1, s2;
+int main(int argc, char* argv[]) {
+	if (argc != 4) {
+        std::cerr << "Usage: " << argv[0] << " <filename> <s1> <s2>" << std::endl;
+        return 1;
+    }
 
-	if (!readUserInput(s1, s2)) {
-		return 1;
-	}
+    std::string filename = argv[1];
+    std::string s1 = argv[2];
+    std::string s2 = argv[3];
 
 	std::ifstream input;
 	std::ofstream output;
 
 	// Open files
-	if (!openFiles(input, output)) {
+	if (!openFiles(filename, input, output)) {
 		return 1;
 	}
 	// Validate inputs
-    if (!validateInput(s1, "s1") || !validateInput(s2, "s2")) {
+    if (!validateInput(s1) || !validateInput(s2)) {
         return 1;
     }
     std::string line;
@@ -24,7 +27,7 @@ int main() {
 
 			break;
 		}
-        output << line << std::endl;
+        output << line;
         if (!output) {  // Check output stream for errors (disk full, etc)
             std::cerr << "Error writing to output file." << std::endl;
             return 1;
@@ -37,6 +40,7 @@ int main() {
     }
     input.close();
     output.close();
-	std::cout << "File processed successfully." << std::endl;
+	std::cout << "File processed successfully.";
+	std::cout << std::endl;
     return 0;
 }

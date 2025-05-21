@@ -1,12 +1,12 @@
 # Name of the program
-NAME = sed
+NAME = test_sed
 # Compiler and flags
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 # Source and object files $(SRC_DIR)/newZombie.cpp
 SRC_DIR = src
-SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/processUserInput.cpp $(SRC_DIR)/openFiles.cpp $(SRC_DIR)/findAndReplace.cpp
+SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/test_one.cpp $(SRC_DIR)/test_two.cpp $(SRC_DIR)/test_three.cpp
 OBJ_DIR = build
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 

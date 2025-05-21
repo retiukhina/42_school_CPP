@@ -2,7 +2,7 @@
 
 bool findAndReplace(std::string& s, const std::string s1, const std::string s2) {
     if (s.empty()) {
-        std::cerr << "Error: Search string is empty." << std::endl;
+        std::cerr << "Error: Search string is empty.";
         return false;
     }
 
