@@ -1,5 +1,6 @@
-#include "Fixed.hpp"
+#include "../include/Fixed.hpp"
 
-void setRawBits( int const raw ) {
-	return ;
+void Fixed::setRawBits(int const raw) {
+    std::cout << "setRawBits member function called" << std::endl;
+    this->_fix = raw;
 }
