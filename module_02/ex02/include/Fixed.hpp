@@ -27,6 +27,36 @@ class Fixed {
 		// Converts the fixed-point value to an integer value
 		int toInt( void ) const;
 
+		// Overloaded comparison operators
+        bool operator>(const Fixed& other) const;
+        bool operator<(const Fixed& other) const;
+        bool operator>=(const Fixed& other) const;
+        bool operator<=(const Fixed& other) const;
+        bool operator==(const Fixed& other) const;
+        bool operator!=(const Fixed& other) const;
+
+		// Overloaded arithmetic operators
+		Fixed& operator+=(const Fixed& other);
+		const Fixed operator+(const Fixed& other) const;
+		Fixed& operator-=(const Fixed& other);
+		const Fixed operator-(const Fixed& other) const;
+		Fixed& operator*=(const Fixed& other);
+		const Fixed operator*(const Fixed& other) const;
+		Fixed& operator/=(const Fixed& other);
+		const Fixed operator/(const Fixed& other) const;
+
+		// Overloaded increment/precrement operators
+		Fixed& operator++();
+		Fixed operator++(int);
+		Fixed& operator--();
+		Fixed operator--(int);
+
+        // Overloaded functions
+        static Fixed& min(Fixed& a, Fixed& b);
+        static const Fixed& min(const Fixed& a, const Fixed& b);
+        static Fixed& max (Fixed& a, Fixed& b);
+        static const Fixed& max (const Fixed& a, const Fixed& b);
+
 	private:
 		// store the fixed-point number value
 		int _fix;

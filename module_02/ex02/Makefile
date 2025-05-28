@@ -7,7 +7,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Source and object files
 SRC_DIR = src
-SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/Fixed.cpp $(SRC_DIR)/setRawbits.cpp $(SRC_DIR)/getRawbits.cpp $(SRC_DIR)/toFloat.cpp $(SRC_DIR)/toInt.cpp
+SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/Fixed.cpp $(SRC_DIR)/setRawbits.cpp $(SRC_DIR)/getRawbits.cpp $(SRC_DIR)/toFloat.cpp $(SRC_DIR)/toInt.cpp $(SRC_DIR)/min.cpp $(SRC_DIR)/max.cpp $(SRC_DIR)/overloaded_operators.cpp
 OBJ_DIR = build
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 

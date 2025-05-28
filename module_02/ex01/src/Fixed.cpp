@@ -24,13 +24,13 @@ Fixed::~Fixed() {
 // Multiplies the integer by 256 (shifting left by 8) to store it as fixed-point
 Fixed::Fixed(const int n) {
     std::cout << "Int constructor called" << std::endl;
-    this->_fix = n << _fractionalBits;
+    this->_fix = n << _FRACTIONALBITS;
 }
 
 // Multiplies the float by 256 and rounds to nearest int to convert to fixed-point
 Fixed::Fixed(const float f) {
     std::cout << "Float constructor called" << std::endl;
-    this->_fix = roundf(f * (1 << _fractionalBits));
+    this->_fix = roundf(f * (1 << _FRACTIONALBITS));
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& value) {

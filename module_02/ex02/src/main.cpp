@@ -1,18 +1,20 @@
 #include "../include/Fixed.hpp"
 
 int main( void ) {
-    Fixed a;
-    Fixed const b( 10 );
-    Fixed const c( 42.42f );
-    Fixed const d( b );
-    a = Fixed( 1234.4321f );
-    std::cout << "a is " << a << std::endl;
-    std::cout << "b is " << b << std::endl;
-    std::cout << "c is " << c << std::endl;
-    std::cout << "d is " << d << std::endl;
-    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-    return 0;
+   Fixed a;
+   Fixed const b( Fixed( 6.05f ) * Fixed( 2 ) );
+   std::cout << "A number is: " << a << std::endl;
+   std::cout << "A pre-incremented: " << ++a << std::endl;
+   std::cout << "A has stance: " << a << std::endl;
+   std::cout << "A post-incremented: " << a++ << std::endl;
+   std::cout << "A has stance: " << a << std::endl;
+
+   std::cout << "B number is: " << b << std::endl;
+   std::cout << "The bigger number is: " << Fixed::max( a, b ) << std::endl;
+   std::cout << "The less number is: " << Fixed::min( a, b ) << std::endl;
+   Fixed const c( a * b );
+   Fixed const d(a / b);
+   std::cout << "A multiplied by B is: " << c << std::endl;
+   std::cout << "A divideded by B is: " << d << std::endl;
+   return 0;
 }
