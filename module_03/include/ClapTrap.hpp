@@ -3,28 +3,30 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
+using std::string;
 
 class ClapTrap {
 	private:
 		ClapTrap();
-		string _Name;
-		unsigned int hitPoints; // Representing the health of the ClapTrap
-		unsigned int energyPoints;
-		unsigned int attackDamage;
+		ClapTrap& operator=(const ClapTrap& other);
+		ClapTrap(const ClapTrap& other);
+		string _name;
+		unsigned int _hitPoints;
+		unsigned int _energyPoints;
+		unsigned int _attackDamage;
 
-	public:
-		// Constructor to initialize the name
+		public:
 		ClapTrap(const string& name);
-		// Copy constructor
-		// ClapTrap(const ClapTrap& other);
-		// // Copy assignment operator
-		// ClapTrap& operator=(const ClapTrap& other);
-		// // Destructor
+		ClapTrap(const string& name
+					, unsigned int hitpoints
+					, unsigned int energyPoints
+					, unsigned int attackDamage
+		);
 		~ClapTrap();
-		// void attack(const string& target);
-		// void takeDamage(unsigned int amount);
-		// void beRepaired(unsigned int amount);
-
+		void attack(const string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+		unsigned int getAttackDamage() const;
 		const string& getName(void);
 };
+
