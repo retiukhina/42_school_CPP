@@ -25,6 +25,23 @@ ClapTrap::ClapTrap(const string& name
 	cout << _name << " called custom constructor." << endl;
 }
 
+ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
+	cout << "Copy assignment operator called" << endl;
+	if (this != &other) {
+		_name = other._name;
+		_hitPoints = other._hitPoints;
+		_energyPoints = other._energyPoints;
+	}
+	return (*this);
+}
+
+bool ClapTrap::operator==(const ClapTrap& other) const {
+	return (_name == other._name
+		&& _hitPoints == other._hitPoints
+		&& _energyPoints == other._energyPoints
+		&& _attackDamage == other._attackDamage);
+}
+
 const string& ClapTrap::getName(void) {
 	return _name;
 }

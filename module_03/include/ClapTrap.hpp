@@ -10,18 +10,20 @@ class ClapTrap {
 		ClapTrap();
 		ClapTrap& operator=(const ClapTrap& other);
 		ClapTrap(const ClapTrap& other);
+		
 		string _name;
 		unsigned int _hitPoints;
 		unsigned int _energyPoints;
 		unsigned int _attackDamage;
-
-		public:
+		
+	public:
 		ClapTrap(const string& name);
 		ClapTrap(const string& name
-					, unsigned int hitpoints
-					, unsigned int energyPoints
-					, unsigned int attackDamage
+			, unsigned int hitpoints
+			, unsigned int energyPoints
+			, unsigned int attackDamage
 		);
+		bool operator==(const ClapTrap& other) const;
 		~ClapTrap();
 		void attack(const string& target);
 		void takeDamage(unsigned int amount);
