@@ -4,14 +4,14 @@ using std::cout;
 using std::endl;
 
 ScavTrap::ScavTrap() : ClapTrap() {
-    cout << "ScavTrap " << getName() << " called default constructor." 
+    cout << "ScavTrap " << getName() << " called default constructor."
 			<< endl;
 }
 
 ScavTrap::ScavTrap(const string& name)
     : ClapTrap(name, 100, 50, 20)
 {
-    cout << "ScavTrap " << name << " called name-only constructor." 
+    cout << "ScavTrap " << name << " called name-only constructor."
 			<< endl;
 }
 
@@ -29,7 +29,7 @@ ScavTrap::ScavTrap(const string& name
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
-    cout << "ClapTrap " << getName() << " called copy constructor." << endl;
+    cout << "ScavTrap " << getName() << " called copy constructor." << endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
@@ -41,11 +41,11 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
 }
 
 ScavTrap::~ScavTrap() {
-    cout << "ScavTrap " << getName() << " called destructor." 
+    cout << "ScavTrap " << getName() << " called destructor."
 			<< endl;
 }
 
 void ScavTrap::guardGate() {
-    cout << "ScavTrap " << getName() << " now in Gate keeper mode." 
+    cout << "ScavTrap " << getName() << " now in Gate keeper mode."
 			<< endl;
 }
