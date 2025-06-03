@@ -29,7 +29,7 @@ ScavTrap::ScavTrap(const string& name
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
-    cout << "ClapTrap " << getName() << " called copy assignment operator." << endl;
+    cout << "ClapTrap " << getName() << " called copy constructor." << endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) {

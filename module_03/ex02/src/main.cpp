@@ -1,39 +1,60 @@
+#include "../include/FragTrap.hpp"
 #include "../include/ScavTrap.hpp"
+
 #include <cassert>
 
 using std::cout;
 using std::endl;
 
-void attacking(
+void ScavAgainstFrag(
 	ScavTrap& attacker
-	, ScavTrap& target
+	, FragTrap& target
 	, const ScavTrap rsltA
-	, const ScavTrap rsltB)
-{
+	, const FragTrap rsltB
+){
+	attacker.attack(target.getName());
+	if (attacker.getHitPoints() > 0) {
+		target.takeDamage(attacker.getAttackDamage());
+	}
+	else {
+		target.highFivesGuys();
+	}
+	attacker.beRepaired(1);
+	assert(attacker == rsltA);
+	assert(target == rsltB);
+	cout << endl;
+}
+
+void ClapAgainstFrag(
+	ClapTrap& attacker
+	, FragTrap& target
+	, const ClapTrap rsltA
+	, const FragTrap rsltB
+){
 		attacker.attack(target.getName());
 		if (attacker.getHitPoints() > 0) {
 			target.takeDamage(attacker.getAttackDamage());
 		}
 		else {
-			target.guardGate();
+			target.highFivesGuys();
 		}
 		attacker.beRepaired(1);
 		assert(attacker == rsltA);
 		assert(target == rsltB);
+		cout << endl;
 }
 
 int main() {
-	ScavTrap a("Jim");
-	ScavTrap b("Madonna");
-	assert(a == ScavTrap("Jim", 100, 50, 20));
-	assert(b == ScavTrap("Madonna", 100, 50, 20));
-	attacking(a, b, ScavTrap("Jim", 101, 48, 20), ScavTrap("Madonna", 80, 50, 20));
-	cout << endl;
-	attacking(a, b, ScavTrap("Jim", 102, 46, 20), ScavTrap("Madonna", 60, 50, 20));
-	cout << endl;
-	ScavTrap c("Nick", 0, 0, 20);
-	attacking(c, a, ScavTrap("Nick", 0, 0, 20), ScavTrap("Jim", 102, 46, 20));
-	// attacking(a, b, ScavTrap("Jim", 13, 4, 9), ScavTrap("Madonna", 0, 10, 0));
-	// attacking(b, a, ScavTrap("Madonna", 1, 9, 0), ScavTrap("Jim", 13, 4, 9));
-	// cout << endl;
+	ClapTrap a("Jim");
+	ScavTrap c("Nick", 0, 50, 20);
+	FragTrap b("Madonna");
+	assert(a == ClapTrap("Jim", 10, 10, 0));
+	assert(c == ScavTrap("Nick", 0, 50, 20));
+	assert(b == FragTrap("Madonna", 100, 100, 30));
+	cout << "\033[1;32m\nClapTrap against FragTrap:\033[0m" << endl;
+	ClapAgainstFrag(a, b, ClapTrap("Jim", 11, 8, 0), FragTrap("Madonna", 100, 100, 30));
+	cout << "\033[1;32m\nScavTrap against FragTrap:\033[0m" << endl;
+	ScavAgainstFrag(c, b, ScavTrap("Nick", 1, 49, 20), FragTrap("Madonna", 100, 100, 30));
+	cout << "\033[1;32m\nScavTrap repaired and fight against FragTrap again!\033[0m" << endl;
+	ScavAgainstFrag(c, b, ScavTrap("Nick", 2, 47, 20), FragTrap("Madonna", 80, 100, 30));
 }

@@ -24,6 +24,5 @@ class ScavTrap: public ClapTrap {
 	private:
 		ScavTrap();
 		ScavTrap& operator=(const ScavTrap& other);
-
 };
 
