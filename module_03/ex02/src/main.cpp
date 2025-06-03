@@ -33,4 +33,7 @@ int main() {
 	cout << endl;
 	ScavTrap c("Nick", 0, 0, 20);
 	attacking(c, a, ScavTrap("Nick", 0, 0, 20), ScavTrap("Jim", 102, 46, 20));
+	// attacking(a, b, ScavTrap("Jim", 13, 4, 9), ScavTrap("Madonna", 0, 10, 0));
+	// attacking(b, a, ScavTrap("Madonna", 1, 9, 0), ScavTrap("Jim", 13, 4, 9));
+	// cout << endl;
 }
