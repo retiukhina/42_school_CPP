@@ -6,7 +6,11 @@
 #include "ClapTrap.hpp"
 
 class FragTrap: public ClapTrap {
-    public:
+	private:
+		FragTrap();
+		FragTrap& operator=(const FragTrap& other);
+
+	public:
 		FragTrap(const string& name);
 		FragTrap(const string& name
 				, unsigned int hitpoints
@@ -18,8 +22,4 @@ class FragTrap: public ClapTrap {
 
 		void attack(const string& target);
 		void highFivesGuys(void);
-	
-	private:
-		FragTrap();
-		FragTrap& operator=(const FragTrap& other);
 };

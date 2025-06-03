@@ -9,13 +9,13 @@ class ClapTrap {
 	private:
 		ClapTrap();
 		ClapTrap& operator=(const ClapTrap& other);
-		
+
 		string _name;
 		unsigned int _hitPoints;
 		unsigned int _energyPoints;
 		unsigned int _attackDamage;
-		
-		public:
+
+	public:
 		ClapTrap(const string& name);
 		ClapTrap(const string& name
 			, unsigned int hitpoints

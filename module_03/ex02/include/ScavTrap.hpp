@@ -8,6 +8,9 @@
 using std::string;
 
 class ScavTrap: public ClapTrap {
+	private:
+		ScavTrap();
+		ScavTrap& operator=(const ScavTrap& other);
 	public:
 		ScavTrap(const string& name);
 		ScavTrap(const string& name
@@ -20,9 +23,7 @@ class ScavTrap: public ClapTrap {
 
 		void attack(const string& target);
 		void guardGate();
-	
-	private:
-		ScavTrap();
-		ScavTrap& operator=(const ScavTrap& other);
+
+
 };
 
