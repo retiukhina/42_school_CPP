@@ -2,11 +2,11 @@
 NAME = ClapTrap
 # Compiler and flags
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 # Source and object files $(SRC_DIR)/newZombie.cpp
 SRC_DIR = src
-SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/ClapTrap.cpp
+SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/ClapTrap.cpp $(SRC_DIR)/attack.cpp
 OBJ_DIR = build
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
