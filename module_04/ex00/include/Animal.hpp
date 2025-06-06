@@ -10,14 +10,18 @@ using std:: endl;
 class Animal {
 	public:
 		Animal();
+		Animal(const string& animalType);
 		Animal(const Animal& other);
 		Animal& operator=(const Animal& other);
 		virtual ~Animal();
 
-		void setType(const string& name);
+		string *str;
 
-		virtual makeSound();
+		void setType(const string& name);
+		const string& getType() const;
+
+		virtual void makeSound() const;
 
 	protected:
-		string type;
+		string _type;
 };
