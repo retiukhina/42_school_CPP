@@ -16,8 +16,8 @@ Cat::Cat(const string& animalType, const Brain& brain)
 
 Cat::Cat(const Cat& other)
     : Animal(other)
+	, _brain(new Brain(*other._brain)) // deep copy
 {
-	_brain = new Brain(*other._brain); // deep copy
     cout << "Cat called copy constructor" << endl;
 }
 
