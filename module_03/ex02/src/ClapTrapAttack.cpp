@@ -1,6 +1,6 @@
 #include "../include/ClapTrap.hpp"
 
-#define DEBIG
+#define DEBUG
 using std::cout;
 using std::endl;
 
@@ -24,12 +24,12 @@ void ClapTrap::takeDamage(unsigned int amount) {
 		_hitPoints -= amount;
 	}
 	else {
-		cout << "ClapTrap " << _name << " lost all hit points! " 
+		cout << "ClapTrap " << _name << " lost all hit points! "
             << endl;
 	}
     #ifdef DEBUG
     cout << "ClapTrap " << _name << ": " << _hitPoints << " hit points, "
-            << _energyPoints << " energy points, " << getAttackDamage() 
+            << _energyPoints << " energy points, " << getAttackDamage()
             << " damage attack left." << endl;
     #endif
 }
