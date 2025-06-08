@@ -26,14 +26,6 @@ Animal& Animal::operator=(const Animal& other) {
 	return *this;
 }
 
-// void Animal::setType(const string& name) {
-// 	this->_type = name;
-// }
-
-// const string& Animal::getType() const {
-// 	return _type;
-// }
-
 void Animal::setIdea(const string& keyword, const string& message) {
 	(void)keyword;
 	(void)message;
