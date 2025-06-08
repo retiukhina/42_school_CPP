@@ -7,18 +7,18 @@ using std::string;
 using std:: cout;
 using std:: endl;
 
-class Animal {
+class WrongAnimal {
 	public:
-		Animal();
-		Animal(const string& animalType);
-		Animal(const Animal& other);
-		Animal& operator=(const Animal& other);
-		virtual ~Animal();
+		WrongAnimal();
+		WrongAnimal(const string& animalType);
+		WrongAnimal(const WrongAnimal& other);
+		WrongAnimal& operator=(const WrongAnimal& other);
+		~WrongAnimal();
 
 		void setType(const string& name);
 		const string& getType() const;
 
-		virtual void makeSound() const;
+		void makeSound() const;
 
 	protected:
 		string _type;
