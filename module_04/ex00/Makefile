@@ -38,4 +38,7 @@ fclean: clean
 # Rule to rebuild everything
 re: fclean all
 
+test: $(NAME)
+		valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+
 .PHONY: all clean fclean re

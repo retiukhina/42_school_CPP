@@ -26,4 +26,10 @@ int main() {
 	meta->makeSound();
 	alpha->makeSound();
 	wc->makeSound();
+
+	delete meta;
+	delete d;
+	delete c;
+	delete alpha;
+	delete wc;
 }
