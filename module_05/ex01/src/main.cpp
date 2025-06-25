@@ -10,9 +10,9 @@ int main() {
     Form passport("Passport Form", 20, 30);
     john.signForm(passport);
 
-    std::cout << passport << std::endl;
+    cout << passport << endl;
     john.signForm(passport);
-    std::cout << passport << std::endl;
+    cout << passport << endl;
 
     Bureaucrat alice("Alice", 50);
     alice.signForm(passport);

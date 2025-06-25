@@ -1,5 +1,5 @@
 #include "../include/Bureaucrat.hpp"
-#include "../include/Form.hpp"
+#include "../include/AForm.hpp"
 
 Bureaucrat::Bureaucrat(const string& name, int grade)
     : _name(name)
@@ -85,6 +85,17 @@ void Bureaucrat::signForm(AForm& form) {
              << " because " << e.what() << std::endl;
     }
 }
+
+void Bureaucrat::executeForm(const AForm& form) const {
+    try {
+        form.execute(*this);
+        std::cout << getName() << " executed " << form.getName() << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << getName() << " couldn’t execute " << form.getName()
+                  << " because: " << e.what() << std::endl;
+    }
+}
+
 
 ostream& operator<<(ostream& os, const Bureaucrat& bureaucrat) {
     os << bureaucrat.getName() << " bureacrat grade " << bureaucrat.getGrade() << endl;
