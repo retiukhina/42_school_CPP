@@ -30,7 +30,8 @@ class AForm {
 		AForm(const string& name);
 		AForm(const string& name, int sGrade, int eGrade);
 		AForm(const AForm& other);
-		AForm();AForm& operator=(const AForm& other);
+		AForm();
+		AForm& operator=(const AForm& other);
         ~AForm();
 
         const string& getName() const;
