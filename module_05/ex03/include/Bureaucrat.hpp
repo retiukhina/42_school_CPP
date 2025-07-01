@@ -16,14 +16,16 @@ class AForm;
 
 class Bureaucrat {
 	private:
-		Bureaucrat();
-		Bureaucrat& operator=(const Bureaucrat& other);
+		static const string DEFAULT_NAME;
+		static const int DEFAULT_GRADE;
 		const string _name;
 		int _grade;
 
 	public:
+		Bureaucrat();
 		Bureaucrat(const string& name, int grade);
 		Bureaucrat(const Bureaucrat& other);
+		Bureaucrat& operator=(const Bureaucrat& other);
 		~Bureaucrat();
 
 		void incrementGrade();

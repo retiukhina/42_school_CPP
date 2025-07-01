@@ -32,13 +32,13 @@ const string& ShrubberyCreationForm::getTarget() const {
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
-    // check if form is signed
+    // Check if form is signed
     if (!ifSigned())
         throw AForm::FormNotSignedException();
     if (executor.getGrade() > getGradeToExecute())
         throw AForm::GradeTooLowException();
 
-    // Your shrubbery ASCII generation here
+    // Shrubbery ASCII generation
     ofstream out((_target + "_shrubbery").c_str());
     if (!out)
         return;
