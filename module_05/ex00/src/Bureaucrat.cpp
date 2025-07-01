@@ -1,5 +1,13 @@
 #include "../include/Bureaucrat.hpp"
 
+const string Bureaucrat::DEFAULT_NAME = "Bureaucrat";
+const int Bureaucrat::DEFAULT_GRADE = 0;
+
+Bureaucrat::Bureaucrat()
+    : _name(DEFAULT_NAME)
+    , _grade(DEFAULT_GRADE)
+{}
+
 Bureaucrat::Bureaucrat(const string& name, int grade)
     : _name(name)
 {
@@ -13,7 +21,14 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other)
     setGrade(other._grade);
     cout << _name << ": Copy constructor called." << endl;
 }
-    
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
+    if (this != &other) {
+        this->_grade = other._grade;
+    }
+	cout << "Copy Assignment" << endl;
+    return *this;
+}
 
 Bureaucrat::~Bureaucrat() {
     cout << _name << ": Destructor called." << endl;
