@@ -8,7 +8,7 @@ using std:: ofstream;
 class ShrubberyCreationForm: public AForm {
 	private:
 		string _target;
-		static const std::string DEFAULT_TARGET;
+		static const string DEFAULT_TARGET;
 
 	public:
 		ShrubberyCreationForm();
@@ -22,4 +22,4 @@ class ShrubberyCreationForm: public AForm {
     	void execute(const Bureaucrat& executor) const;
 };
 
-std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& form);
+ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& form);

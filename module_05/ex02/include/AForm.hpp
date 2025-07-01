@@ -32,7 +32,7 @@ class AForm {
 		AForm(const AForm& other);
 		AForm();
 		AForm& operator=(const AForm& other);
-        ~AForm();
+        virtual ~AForm();
 
         const string& getName() const;
         bool ifSigned() const;
