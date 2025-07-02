@@ -1,6 +1,7 @@
 #pragma once
 
 #include "AForm.hpp"
+#include "FormFactory.hpp"
 #include <cstring>
 
 static const char* const FORM_TYPE_ROBOTOMY = "robotomy";
@@ -12,10 +13,11 @@ typedef AForm* (*FormCreator)(const std::string& target);
 
 class Intern {
 	private:
-		const char* formTypes[MAX_FORM_TYPES];
+		string formTypes[MAX_FORM_TYPES];
 		FormCreator creators[MAX_FORM_TYPES];
 		int _count;
-
+		
+		void registerForm(const string& formType, FormCreator creator);
 		Intern(const Intern& other);
 		//Intern& operator=(const Intern& other);
 
@@ -25,7 +27,5 @@ class Intern {
 		Intern();
 		~Intern();
 
-		void registerForm(const string& formType, FormCreator creator);
-
-		AForm* makeForm(const string formType, const string target);
+		AForm* makeForm(const string& formType, const string& target);
 };

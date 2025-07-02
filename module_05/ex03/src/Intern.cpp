@@ -1,15 +1,18 @@
 #include "../include/Intern.hpp"
-#include "../include/PresidentialPardonForm.hpp"
-#include "../include/RobotomyRequestForm.hpp"
 
 Intern::Intern()
-    : _count(0) {}
+    : _count(0) 
+{
+    registerForm(FORM_TYPE_ROBOTOMY, createRobotomy);
+    registerForm(FORM_TYPE_PARDON, createPardon);
+    registerForm(FORM_TYPE_SHRUBBERY, createShrubbery);
+}
 
 Intern::~Intern() {}
 
 bool Intern::alreadyRegistered(const string& formType) {
     for (int i = 0; i < _count; ++i){
-        if (strcmp(formTypes[i], formType) == 0) {
+        if (formTypes[i] == formType) {
             return true;
         }
     }
@@ -17,8 +20,8 @@ bool Intern::alreadyRegistered(const string& formType) {
 }
 
 void Intern::registerForm(const string& formType, FormCreator creator) {
-    if (!formType || !creator || _count >= MAX_FORM_TYPES) {
-        return;
+    if (formType.empty() || !creator || _count >= MAX_FORM_TYPES) {
+        return ;
     }
 
     if (alreadyRegistered(formType)) {
@@ -28,12 +31,15 @@ void Intern::registerForm(const string& formType, FormCreator creator) {
     formTypes[_count] = formType.c_str();
     creators[_count] = creator;
     ++_count;
+    return ;
 }
 
 AForm* Intern::makeForm(const string& formType, const string& target) {
    for (int i = 0; i < _count; ++i) {
-        if(strcmp(formTypes[i], formType) == 0) {
+        if (formTypes[i] == formType) {
             return creators[i](target);
         }
    }
+   cerr << "Error: Unknown form type \"" << formType << "\"." << endl;
+   return 0;
 }

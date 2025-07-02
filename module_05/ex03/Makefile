@@ -3,7 +3,7 @@ NAME = Bureaucrat
 
 # Compiler and flags
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -Wreorder -std=c++98
+CXXFLAGS = -g -Wall -Wextra -Werror -Wreorder -std=c++98
 
 # Source and object files
 SRC_DIR = src
@@ -13,7 +13,9 @@ SRC = $(SRC_DIR)/main.cpp \
 	$(SRC_DIR)/ShrubberyCreationForm.cpp \
 	$(SRC_DIR)/RobotomyRequestForm.cpp \
 	$(SRC_DIR)/PresidentialPardonForm.cpp \
-	$(SRC_DIR)/Intern.cpp
+	$(SRC_DIR)/Intern.cpp \
+	$(SRC_DIR)/FormFactory.cpp
+
 
 OBJ_DIR = build
 OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
