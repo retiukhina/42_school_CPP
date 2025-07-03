@@ -1,14 +1,15 @@
 #include "../include/Bureaucrat.hpp"
 #include "../include/AForm.hpp"
 #include <sstream>
+
 // #define DEBUG
 
 const string Bureaucrat::DEFAULT_NAME = "Bureaucrat";
-const int Bureaucrat::DEFAULT_GRADE = 0;
+const int Bureaucrat::DEFAULT_GRADE = 1;
 
 Bureaucrat::Bureaucrat()
-    : _name(DEFAULT_NAME)
-    , _grade(DEFAULT_GRADE)
+	: _name(DEFAULT_NAME)
+	, _grade(validateGrade(DEFAULT_GRADE))
 {}
 
 Bureaucrat::Bureaucrat(const string& name, int grade)
@@ -51,6 +52,14 @@ const string& Bureaucrat::getName() const {
 
 int Bureaucrat::getGrade() const {
     return _grade;
+}
+
+int Bureaucrat::validateGrade(int grade) {
+    if (grade < 1)
+        throw GradeTooHighException(grade);
+    if (grade > 150)
+        throw GradeTooLowException(grade);
+    return grade;
 }
 
 void Bureaucrat::setGrade(const int grade) {
@@ -123,6 +132,6 @@ void Bureaucrat::executeForm(const AForm& form) const {
 
 
 ostream& operator<<(ostream& os, const Bureaucrat& bureaucrat) {
-    os << bureaucrat.getName() << " bureacrat grade " << bureaucrat.getGrade() << endl;
+    os << bureaucrat.getName() << " bureaucrat grade " << bureaucrat.getGrade();
     return os;
 }

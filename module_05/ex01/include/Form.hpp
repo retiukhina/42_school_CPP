@@ -26,7 +26,7 @@ class Form {
         const int _gradeToSign; // Const, the grade doesn't change once a form is created
         const int _gradeToExecute;
         bool _ifSigned; // Non-const, the value can be changed
-    
+
     public:
         Form();
         Form(const string& name);
@@ -38,7 +38,7 @@ class Form {
         bool ifSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;
-        int checkGradeToSign(const int grade);       
+        int checkGrade(const int grade);
 
         void beSigned(const Bureaucrat& b);
 

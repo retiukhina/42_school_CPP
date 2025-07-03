@@ -13,13 +13,14 @@ typedef AForm* (*FormCreator)(const std::string& target);
 
 class Intern {
 	private:
+		Intern(const Intern& other);
+		Intern &operator=(const Intern& other);
+
 		string formTypes[MAX_FORM_TYPES];
 		FormCreator creators[MAX_FORM_TYPES];
 		int _count;
-		
+
 		void registerForm(const string& formType, FormCreator creator);
-		Intern(const Intern& other);
-		//Intern& operator=(const Intern& other);
 
 		bool alreadyRegistered(const string& formType);
 

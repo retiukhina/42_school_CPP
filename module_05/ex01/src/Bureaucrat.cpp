@@ -1,38 +1,48 @@
 #include "../include/Bureaucrat.hpp"
 #include "../include/Form.hpp"
 
+// #define DEBUG
+
 const string Bureaucrat::DEFAULT_NAME = "Bureaucrat";
-const int Bureaucrat::DEFAULT_GRADE = 0;
+const int Bureaucrat::DEFAULT_GRADE = 1;
 
 Bureaucrat::Bureaucrat()
 	: _name(DEFAULT_NAME)
-	, _grade(DEFAULT_GRADE)
+	, _grade(validateGrade(DEFAULT_GRADE))
 {}
 
 Bureaucrat::Bureaucrat(const string& name, int grade)
     : _name(name)
 {
     setGrade(grade);
+    #ifdef DEBUG
     cout << _name << ": Constructor by name called." << endl;
+    #endif
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
     : _name(other._name)
 {
     setGrade(other._grade);
+    #ifdef DEBUG
     cout << _name << ": Copy constructor called." << endl;
+    #endif
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
     if (this != &other) {
         this->_grade = other._grade;
     }
-	cout << "Copy Assignment" << endl;
+    #ifdef DEBUG
+	cout << "Copy Assignment called" << endl;
+    #endif
     return *this;
 }
 
 Bureaucrat::~Bureaucrat() {
+    #ifdef DEBUG
     cout << _name << ": Destructor called." << endl;
+    #endif
 }
 
 const string& Bureaucrat::getName() const {
@@ -41,6 +51,14 @@ const string& Bureaucrat::getName() const {
 
 int Bureaucrat::getGrade() const {
     return _grade;
+}
+
+int Bureaucrat::validateGrade(int grade) {
+    if (grade < 1)
+        throw GradeTooHighException(grade);
+    if (grade > 150)
+        throw GradeTooLowException(grade);
+    return grade;
 }
 
 void Bureaucrat::setGrade(const int grade) {
@@ -102,6 +120,6 @@ void Bureaucrat::signForm(Form& form) {
 }
 
 ostream& operator<<(ostream& os, const Bureaucrat& bureaucrat) {
-    os << bureaucrat.getName() << " bureacrat grade " << bureaucrat.getGrade() << endl;
+    os << bureaucrat.getName() << " bureaucrat grade " << bureaucrat.getGrade();
     return os;
 }

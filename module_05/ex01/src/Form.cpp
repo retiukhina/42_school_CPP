@@ -1,13 +1,13 @@
 #include "../include/Form.hpp"
 
-Form::Form() 
+Form::Form()
     : _name("Form")
     , _gradeToSign(defaultGradeToSign)
     , _gradeToExecute(defaultGradeToExecute)
     , _ifSigned(false)
 {}
 
-Form::Form(const string& name) 
+Form::Form(const string& name)
     : _name(name)
     , _gradeToSign(defaultGradeToSign)
     , _gradeToExecute(defaultGradeToExecute)
@@ -16,10 +16,10 @@ Form::Form(const string& name)
 
 Form::Form(const string& name, int sGrade, int eGrade)
     : _name(name)
-    , _gradeToSign(checkGradeToSign(sGrade))
-    , _gradeToExecute(eGrade)
+    , _gradeToSign(checkGrade(sGrade))
+    , _gradeToExecute(checkGrade(eGrade))
     , _ifSigned(false)
-{}    
+{}
 
 Form::Form(const Form& other)
     : _name(other._name)
@@ -45,7 +45,7 @@ bool Form::ifSigned() const {
     return _ifSigned;
 }
 
-int Form::checkGradeToSign(const int grade){
+int Form::checkGrade(const int grade){
     if (grade < HIGHEST_GRADE) {
         throw GradeTooHighException();
     }

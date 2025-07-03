@@ -1,11 +1,20 @@
 #include "../include/Intern.hpp"
 
 Intern::Intern()
-    : _count(0) 
+    : _count(0)
 {
     registerForm(FORM_TYPE_ROBOTOMY, createRobotomy);
     registerForm(FORM_TYPE_PARDON, createPardon);
     registerForm(FORM_TYPE_SHRUBBERY, createShrubbery);
+}
+
+Intern &Intern::operator=(const Intern &other) {
+    (void)other;
+    return *this;
+}
+
+Intern::Intern(const Intern &other) {
+    (void)other;
 }
 
 Intern::~Intern() {}

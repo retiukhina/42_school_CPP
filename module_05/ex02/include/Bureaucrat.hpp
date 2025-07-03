@@ -2,14 +2,13 @@
 
 #include <string>
 #include <iostream>
-#include <exception>
-#include <sstream>
 
 using std:: string;
 using std:: cout;
 using std:: cerr;
 using std:: endl;
 using std:: ostream;
+using std:: ostringstream;
 using std:: exception;
 
 class AForm;
@@ -20,6 +19,9 @@ class Bureaucrat {
 		static const int DEFAULT_GRADE;
 		const string _name;
 		int _grade;
+
+		// to validate grade initialised in default constructor
+		static int validateGrade(int grade);
 
 	public:
 		Bureaucrat();

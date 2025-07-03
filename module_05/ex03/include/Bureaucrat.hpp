@@ -2,7 +2,6 @@
 
 #include <string>
 #include <iostream>
-// #include <exception>
 
 using std:: string;
 using std:: cout;
@@ -20,6 +19,9 @@ class Bureaucrat {
 		static const int DEFAULT_GRADE;
 		const string _name;
 		int _grade;
+
+		// to validate grade initialised in default constructor
+		static int validateGrade(int grade);
 
 	public:
 		Bureaucrat();

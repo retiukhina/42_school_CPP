@@ -16,8 +16,8 @@ AForm::AForm(const string& name)
 
 AForm::AForm(const string& name, int sGrade, int eGrade)
     : _name(name)
-    , _gradeToSign(checkGradeToSign(sGrade))
-    , _gradeToExecute(eGrade)
+    , _gradeToSign(checkGrade(sGrade))
+    , _gradeToExecute(checkGrade(eGrade))
     , _ifSigned(false)
 {}
 
@@ -45,7 +45,7 @@ bool AForm::ifSigned() const {
     return _ifSigned;
 }
 
-int AForm::checkGradeToSign(const int grade){
+int AForm::checkGrade(const int grade){
     if (grade < HIGHEST_GRADE) {
         throw GradeTooHighException();
     }

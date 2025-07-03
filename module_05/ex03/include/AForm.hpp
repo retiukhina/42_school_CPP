@@ -2,8 +2,8 @@
 
 #include <exception>
 #include <string>
-//#include <sstream>
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 using std:: string;
 using std:: cout;
@@ -11,8 +11,6 @@ using std:: cerr;
 using std:: endl;
 using std:: ostream;
 using std:: exception;
-
-class Bureaucrat;
 
 // Reuse the grade boundary logic from Bureaucrat, applying it to Form’s grade requirements
 
@@ -39,7 +37,7 @@ class AForm {
         bool ifSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;
-        int checkGradeToSign(const int grade);
+        int checkGrade(const int grade);
 
         void beSigned(const Bureaucrat& b);
         virtual void execute(const Bureaucrat& executor) const = 0;

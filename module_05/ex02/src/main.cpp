@@ -1,11 +1,10 @@
-#include <iostream>
 #include "../include/Bureaucrat.hpp"
-#include "../include/ShrubberyCreationForm.hpp"
-#include "../include/RobotomyRequestForm.hpp"
 #include "../include/PresidentialPardonForm.hpp"
+#include "../include/RobotomyRequestForm.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
 
 void testShrubberyForm() {
-    cout << "\033[2;23mTest: ShrubberyCreationForm\033[0m" << endl;
+    cout << "\033[2;23mTest 1: ShrubberyCreationForm\033[0m" << endl;
     try {
         Bureaucrat bob("Bob", 1);
         ShrubberyCreationForm form("home");
@@ -15,11 +14,10 @@ void testShrubberyForm() {
     } catch (const std::exception& e) {
         cerr << "Shrubbery Error: " << e.what() << endl;
     }
-    cout << endl;
 }
 
 void testRobotomyForm() {
-    cout << "\033[2;23mTest: RobotomyRequestForm\033[0m" << endl;
+    cout << "\033[2;23mTest 2: RobotomyRequestForm\033[0m" << endl;
     try {
         Bureaucrat alice("Alice", 40); // grade high enough to sign and execute
         RobotomyRequestForm form("target_robot");
@@ -29,11 +27,10 @@ void testRobotomyForm() {
     } catch (const std::exception& e) {
         cerr << "Robotomy Error: " << e.what() << endl;
     }
-    cout << endl;
 }
 
 void testPresidentialPardonForm() {
-    cout << "\033[2;23mTest: PresidentialPardonForm\033[0m" << endl;
+    cout << "\033[2;23mTest 3: PresidentialPardonForm\033[0m" << endl;
     try {
         Bureaucrat zaphod("Zaphod", 1); // top grade
         PresidentialPardonForm form("Ford Prefect");
@@ -43,11 +40,10 @@ void testPresidentialPardonForm() {
     } catch (const std::exception& e) {
         cerr << "Pardon Error: " << e.what() << endl;
     }
-    cout << endl;
 }
 
 void testFailExecution() {
-    cout << "\033[2;23mTest: Execution with Low Grade\033[0m" << endl;
+    cout << "\033[2;23mTest 4: Form has been not signed, not executed\033[0m" << endl;
     try {
         Bureaucrat joe("Joe", 150);
         ShrubberyCreationForm form("fail_test");
@@ -57,7 +53,6 @@ void testFailExecution() {
     } catch (const std::exception& e) {
         cerr << "Fail Execution Error: " << e.what() << endl;
     }
-    cout << endl;
 }
 
 int main() {

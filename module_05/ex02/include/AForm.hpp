@@ -1,9 +1,8 @@
 #pragma once
 
+#include <exception>
 #include <string>
 #include <iostream>
-#include <exception>
-#include <sstream>
 #include "Bureaucrat.hpp"
 
 using std:: string;
@@ -38,7 +37,7 @@ class AForm {
         bool ifSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;
-        int checkGradeToSign(const int grade);
+        int checkGrade(const int grade);
 
         void beSigned(const Bureaucrat& b);
 		virtual void execute(const Bureaucrat& executor) const = 0;
