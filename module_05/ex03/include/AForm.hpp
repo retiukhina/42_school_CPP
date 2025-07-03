@@ -1,10 +1,9 @@
 #pragma once
 
-#include <string>
-#include <iostream>
 #include <exception>
-#include <sstream>
-#include "Bureaucrat.hpp"
+#include <string>
+//#include <sstream>
+#include <iostream>
 
 using std:: string;
 using std:: cout;
@@ -12,6 +11,8 @@ using std:: cerr;
 using std:: endl;
 using std:: ostream;
 using std:: exception;
+
+class Bureaucrat;
 
 // Reuse the grade boundary logic from Bureaucrat, applying it to Form’s grade requirements
 

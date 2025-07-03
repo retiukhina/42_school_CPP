@@ -2,15 +2,14 @@
 
 #include <string>
 #include <iostream>
-#include <exception>
-#include <sstream>
+// #include <exception>
 
 using std:: string;
 using std:: cout;
 using std:: cerr;
 using std:: endl;
 using std:: ostream;
-using std::ostringstream;
+using std:: ostringstream;
 using std:: exception;
 
 class AForm;

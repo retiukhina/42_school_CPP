@@ -1,6 +1,6 @@
 #include "../include/Bureaucrat.hpp"
 #include "../include/AForm.hpp"
-
+#include <sstream>
 // #define DEBUG
 
 const string Bureaucrat::DEFAULT_NAME = "Bureaucrat";

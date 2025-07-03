@@ -1,8 +1,7 @@
 #pragma once
 
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "AForm.hpp"
+#include <string>
 
 AForm* createRobotomy(const std::string& target);
 AForm* createPardon(const std::string& target);

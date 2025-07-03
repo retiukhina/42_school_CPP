@@ -2,7 +2,7 @@
 
 #include "AForm.hpp"
 #include "FormFactory.hpp"
-#include <cstring>
+//#include <cstring>
 
 static const char* const FORM_TYPE_ROBOTOMY = "robotomy";
 static const char* const FORM_TYPE_PARDON = "pardon";

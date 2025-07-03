@@ -1,4 +1,8 @@
 #include "../include/PresidentialPardonForm.hpp"
+#include "../include/Bureaucrat.hpp"
+
+//A Bureaucrat must have grade ≤ 25 to sign the form.
+//A Bureaucrat must have grade ≤ 5 to execute the form.
 
 const std::string PresidentialPardonForm::DEFAULT_TARGET = "default_target";
 

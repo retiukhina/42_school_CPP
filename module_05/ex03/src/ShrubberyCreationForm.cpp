@@ -1,4 +1,8 @@
 #include "../include/ShrubberyCreationForm.hpp"
+#include "../include/Bureaucrat.hpp"
+
+//A Bureaucrat must have grade ≤ 145 to sign the form.
+//A Bureaucrat must have grade ≤ 137 to execute the form.
 
 const string ShrubberyCreationForm::DEFAULT_TARGET = "default_target";
 

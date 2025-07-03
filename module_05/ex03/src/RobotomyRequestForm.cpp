@@ -1,4 +1,9 @@
 #include "../include/RobotomyRequestForm.hpp"
+#include "../include/Bureaucrat.hpp"
+
+
+//A Bureaucrat must have grade ≤ 72 to sign the form.
+//A Bureaucrat must have grade ≤ 45 to execute the form.
 
 const std::string RobotomyRequestForm::DEFAULT_TARGET = "default_target";
 
