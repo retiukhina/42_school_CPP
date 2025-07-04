@@ -28,7 +28,7 @@ void test_4(const string& formType, const string& target) {
     AForm* form = NULL;
     try {
         form = intern.makeForm(formType, target);
-        Bureaucrat boss("Moss", 140);
+        Bureaucrat boss("Moss", 130);
         if (form) {
             boss.signForm(*form);
             boss.executeForm(*form);
