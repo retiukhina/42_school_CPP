@@ -23,6 +23,8 @@ class Bureaucrat {
 
 		// to validate grade initialised in default constructor
 		static int validateGrade(int grade);
+		int getDefaultGrade() const;
+		const string& getDefaultName() const;
 
 	public:
 		Bureaucrat();
@@ -44,7 +46,7 @@ class Bureaucrat {
 				string _message;
 
 			public:
-				GradeTooHighException(int grade);
+				GradeTooHighException();
 				virtual ~GradeTooHighException() throw();
 				virtual const char* what() const throw();
 
@@ -55,7 +57,7 @@ class Bureaucrat {
 				string _message;
 
 			public:
-				GradeTooLowException(int grade);
+				GradeTooLowException();
 				virtual ~GradeTooLowException() throw();
 				virtual const char* what() const throw();
 		};

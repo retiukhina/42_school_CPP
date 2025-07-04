@@ -35,13 +35,15 @@ class Bureaucrat {
 		const string& getName() const;
 		void setGrade(const int grade);
 		int getGrade() const;
+		int getDefaultGrade() const;
+		const string& getDefaultName() const;
 
 		class GradeTooHighException : public exception {
 			private:
 				string _message;
 
 			public:
-				GradeTooHighException(int grade);
+				GradeTooHighException();
 				virtual ~GradeTooHighException() throw();
 				virtual const char* what() const throw();
 
@@ -52,7 +54,7 @@ class Bureaucrat {
 				string _message;
 
 			public:
-				GradeTooLowException(int grade);
+				GradeTooLowException();
 				virtual ~GradeTooLowException() throw();
 				virtual const char* what() const throw();
 		};

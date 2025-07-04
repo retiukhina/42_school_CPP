@@ -7,8 +7,8 @@ const string Bureaucrat::DEFAULT_NAME = "Bureaucrat";
 const int Bureaucrat::DEFAULT_GRADE = 1;
 
 Bureaucrat::Bureaucrat()
-	: _name(DEFAULT_NAME)
-	, _grade(validateGrade(DEFAULT_GRADE))
+    : _name(DEFAULT_NAME)
+    , _grade(validateGrade(DEFAULT_GRADE))
 {}
 
 Bureaucrat::Bureaucrat(const string& name, int grade)
@@ -49,39 +49,47 @@ const string& Bureaucrat::getName() const {
     return _name;
 }
 
-int Bureaucrat::getGrade() const {
-    return _grade;
+const string& Bureaucrat::getDefaultName() const {
+    return DEFAULT_NAME;
 }
 
 int Bureaucrat::validateGrade(int grade) {
     if (grade < 1)
-        throw GradeTooHighException(grade);
+        throw GradeTooHighException();
     if (grade > 150)
-        throw GradeTooLowException(grade);
+        throw GradeTooLowException();
     return grade;
+}
+
+int Bureaucrat::getGrade() const {
+    return _grade;
+}
+
+int Bureaucrat::getDefaultGrade() const{
+    return DEFAULT_GRADE;
 }
 
 void Bureaucrat::setGrade(const int grade) {
     if (grade < 1)
-        throw GradeTooHighException(grade);
+        throw GradeTooHighException();
     else if (grade > 150)
-        throw GradeTooLowException(grade);
+        throw GradeTooLowException();
     _grade = grade;
 }
 
 // Constructor of exception creates the message of error
-Bureaucrat::GradeTooHighException::GradeTooHighException(int grade)
+Bureaucrat::GradeTooHighException::GradeTooHighException()
 {
     std::ostringstream oss;
-    oss << "Grade too high: " << grade;
+    oss << "Grade too high";
     _message = oss.str();
 }
 
 // Constructor of exception creates the message of error
-Bureaucrat::GradeTooLowException::GradeTooLowException(int grade)
+Bureaucrat::GradeTooLowException::GradeTooLowException()
 {
     std::ostringstream oss;
-    oss << "Grade too low: " << grade;
+    oss << "Grade too low";
     _message = oss.str();
 }
 
@@ -98,28 +106,42 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 void Bureaucrat::incrementGrade() {
-    if (_grade - 1 < 1)
-        throw GradeTooHighException(_grade);
+    if (_grade - 1 < 1) {
+        #ifdef DEBUG
+        cout << "Grade can't be incremented" << endl;
+        #endif
+        throw GradeTooHighException();
+    }
     _grade--;
+    #ifdef DEBUG
+    cout << "Grade incremented" << endl;
+    #endif
 }
 
 void Bureaucrat::decrementGrade() {
-    if (_grade + 1 > 150)
-        throw GradeTooLowException(_grade);
+    if (_grade + 1 > 150){
+        #ifdef DEBUG
+        cout << "Grade can't be decremented" << endl;
+        #endif
+        throw GradeTooLowException();
+    }
     _grade++;
+    #ifdef DEBUG
+    cout << "Grade decremented" << endl;
+    #endif
 }
 
 void Bureaucrat::signForm(Form& form) {
     try {
         form.beSigned(*this);
-        cout << _name << " signed " << form.getName() << endl;
+        cout << "\033[32m" << _name << " signed " << form.getName() << " 🙂" << "\033[0m" <<endl;
     } catch (const exception& e) {
-        cout << _name << " couldn’t sign " << form.getName()
-             << " because " << e.what() << std::endl;
+        cout << "\033[31m" << _name << " couldn’t sign " << form.getName()
+             << " because " << e.what() << " 😢" << "\033[0m" << endl;
     }
 }
 
 ostream& operator<<(ostream& os, const Bureaucrat& bureaucrat) {
-    os << bureaucrat.getName() << " bureaucrat grade " << bureaucrat.getGrade();
+    os << bureaucrat.getName() << " bureaucrat grade " << bureaucrat.getGrade() << endl;
     return os;
 }
